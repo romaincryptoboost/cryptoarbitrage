@@ -1,3 +1,5 @@
+import { createClient } from '@supabase/supabase-js';
+
 export interface Database {
   public: {
     Tables: {
@@ -288,10 +290,14 @@ export interface Database {
   }
 }
 
-// This would normally come from environment variables
-// For demo purposes, we'll use placeholder values
-export const supabase = {
-  // Mock client for demonstration
+// Initialize Supabase client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://demo.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'demo-key';
+
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+
+// Mock client for development when Supabase is not configured
+export const mockSupabase = {
   auth: {
     signUp: async () => ({ data: null, error: null }),
     signInWithPassword: async () => ({ data: null, error: null }),
@@ -309,4 +315,7 @@ export const supabase = {
     update: () => ({ data: null, error: null }),
     delete: () => ({ data: null, error: null })
   })
-} as any;
+};
+
+// Use mock client if Supabase is not properly configured
+export const db = supabaseUrl.includes('demo') ? mockSupabase : supabase;

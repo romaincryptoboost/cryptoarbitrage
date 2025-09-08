@@ -12,6 +12,15 @@ import { RegisterPage } from './pages/auth/RegisterPage';
 // Client pages
 import { ClientLayout } from './pages/client/ClientLayout';
 import { ClientDashboard } from './pages/client/ClientDashboard';
+import { WalletPage } from './pages/client/WalletPage';
+import { ExchangePage } from './pages/client/ExchangePage';
+import { ClientPlansPage } from './pages/client/ClientPlansPage';
+import { HistoryPage } from './pages/client/HistoryPage';
+import { ProfilePage } from './pages/client/ProfilePage';
+
+// Admin pages
+import { AdminLayout } from './pages/admin/AdminLayout';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
 
 // Route protection component
 function ProtectedRoute({ children, adminOnly = false }: { children: React.ReactNode; adminOnly?: boolean }) {
@@ -94,19 +103,28 @@ function AppRoutes() {
       }>
         <Route index element={<ClientDashboard />} />
         <Route path="dashboard" element={<ClientDashboard />} />
-        <Route path="wallet" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Wallet page coming soon...</div>} />
-        <Route path="exchange" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Exchange page coming soon...</div>} />
-        <Route path="plans" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Plans page coming soon...</div>} />
-        <Route path="history" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">History page coming soon...</div>} />
-        <Route path="profile" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Profile page coming soon...</div>} />
+        <Route path="wallet" element={<WalletPage />} />
+        <Route path="exchange" element={<ExchangePage />} />
+        <Route path="plans" element={<ClientPlansPage />} />
+        <Route path="history" element={<HistoryPage />} />
+        <Route path="profile" element={<ProfilePage />} />
       </Route>
       
       {/* Admin routes */}
       <Route path="/admin" element={
         <ProtectedRoute adminOnly>
-          <div className="p-8 text-center text-slate-600 dark:text-slate-400">Admin panel coming soon...</div>
+          <AdminLayout />
         </ProtectedRoute>
-      } />
+      }>
+        <Route index element={<AdminDashboard />} />
+        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="users" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Users management coming soon...</div>} />
+        <Route path="transactions" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Transaction management coming soon...</div>} />
+        <Route path="plans" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Plans management coming soon...</div>} />
+        <Route path="wallets" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Wallet management coming soon...</div>} />
+        <Route path="rates" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Rates management coming soon...</div>} />
+        <Route path="profile" element={<ProfilePage />} />
+      </Route>
       
       {/* Catch all route */}
       <Route path="*" element={
