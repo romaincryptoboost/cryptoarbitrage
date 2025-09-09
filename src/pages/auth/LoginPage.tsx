@@ -55,10 +55,10 @@ export function LoginPage() {
             <Lock className="h-6 w-6 text-white" />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-slate-900 dark:text-white">
-            Welcome Back
+            Bon Retour
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Sign in to your Crypto-Arbitrage account
+            Connectez-vous à votre compte Crypto-Arbitrage
           </p>
         </div>
 
@@ -66,11 +66,11 @@ export function LoginPage() {
         <Card className="bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
           <CardContent className="pt-6">
             <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
-              Demo Credentials
+              Identifiants de Démonstration
             </h3>
             <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
-              <p><strong>Admin:</strong> admin@crypto-arbitrage.com / admin123</p>
-              <p><strong>Client:</strong> client@example.com / any password</p>
+              <p><strong>Admin :</strong> admin@crypto-arbitrage.com / admin123</p>
+              <p><strong>Client :</strong> client@example.com / n'importe quel mot de passe</p>
             </div>
           </CardContent>
         </Card>
@@ -79,7 +79,7 @@ export function LoginPage() {
         <Card>
           <CardHeader>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white text-center">
-              Sign In
+              Se Connecter
             </h3>
           </CardHeader>
           
@@ -95,7 +95,7 @@ export function LoginPage() {
               <Input
                 name="email"
                 type="email"
-                label="Email Address"
+                label="Adresse Email"
                 value={formData.email}
                 onChange={handleChange}
                 icon={<Mail className="h-5 w-5" />}
@@ -107,7 +107,7 @@ export function LoginPage() {
                 <Input
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-                  label="Password"
+                  label="Mot de Passe"
                   value={formData.password}
                   onChange={handleChange}
                   icon={<Lock className="h-5 w-5" />}
@@ -129,25 +129,25 @@ export function LoginPage() {
                 size="lg"
                 isLoading={isLoading}
               >
-                Sign In
+                Se Connecter
               </Button>
             </form>
 
             <div className="mt-6 text-center">
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                Don't have an account?{' '}
+                Vous n'avez pas de compte ?{' '}
                 <Link 
                   to="/auth/register" 
                   className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
                 >
-                  Sign up here
+                  Inscrivez-vous ici
                 </Link>
               </p>
             </div>
 
             <div className="mt-4 text-center">
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Password reset available through admin panel only
+                Réinitialisation du mot de passe disponible uniquement via le panneau d'administration
               </p>
             </div>
           </CardContent>

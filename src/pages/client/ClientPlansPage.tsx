@@ -46,38 +46,38 @@ export function ClientPlansPage() {
   const [isInvesting, setIsInvesting] = useState(false);
   const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
-  // Mock plans data
+  // Données des plans simulées
   const plans: Plan[] = [
     {
       id: '1',
-      name: 'Starter',
+      name: 'Débutant',
       apy: 8.5,
       durationDays: 30,
       minAmount: 100,
       maxAmount: 5000,
-      description: 'Perfect for beginners looking to start their crypto investment journey',
+      description: 'Parfait pour les débutants qui souhaitent commencer leur parcours d\'investissement crypto',
       features: [
-        'Daily compounding returns',
-        '24/7 customer support',
-        'Instant withdrawals',
-        'Mobile app access'
+        'Rendements composés quotidiens',
+        'Support client 24h/24 7j/7',
+        'Retraits instantanés',
+        'Accès application mobile'
       ],
       isActive: true
     },
     {
       id: '2',
-      name: 'Growth',
+      name: 'Croissance',
       apy: 12.5,
       durationDays: 90,
       minAmount: 1000,
       maxAmount: 25000,
-      description: 'Ideal for growing your crypto portfolio with higher returns',
+      description: 'Idéal pour faire croître votre portefeuille crypto avec des rendements plus élevés',
       features: [
-        'Daily compounding returns',
-        'Priority customer support',
-        'Advanced analytics',
-        'Portfolio tracking',
-        'Risk management tools'
+        'Rendements composés quotidiens',
+        'Support client prioritaire',
+        'Analyses avancées',
+        'Suivi de portefeuille',
+        'Outils de gestion des risques'
       ],
       isActive: true
     },
@@ -88,25 +88,25 @@ export function ClientPlansPage() {
       durationDays: 180,
       minAmount: 5000,
       maxAmount: 100000,
-      description: 'Maximum returns for serious investors with longer commitment',
+      description: 'Rendements maximaux pour les investisseurs sérieux avec un engagement plus long',
       features: [
-        'Daily compounding returns',
-        'Dedicated account manager',
-        'Custom investment strategies',
-        'Advanced risk controls',
-        'Institutional-grade security',
-        'White-glove service'
+        'Rendements composés quotidiens',
+        'Gestionnaire de compte dédié',
+        'Stratégies d\'investissement personnalisées',
+        'Contrôles de risque avancés',
+        'Sécurité de niveau institutionnel',
+        'Service haut de gamme'
       ],
       isActive: true
     }
   ];
 
-  // Mock active subscriptions
+  // Souscriptions actives simulées
   const activeSubscriptions: Subscription[] = [
     {
       id: '1',
       planId: '2',
-      planName: 'Growth',
+      planName: 'Croissance',
       amount: 10000,
       apy: 12.5,
       startDate: '2024-01-01',
@@ -136,18 +136,18 @@ export function ClientPlansPage() {
     if (amount < selectedPlan.minAmount || (selectedPlan.maxAmount && amount > selectedPlan.maxAmount)) {
       setNotification({ 
         type: 'error', 
-        message: `Investment amount must be between ${formatCurrency(selectedPlan.minAmount)} and ${selectedPlan.maxAmount ? formatCurrency(selectedPlan.maxAmount) : 'unlimited'}` 
+        message: `Le montant d'investissement doit être entre ${formatCurrency(selectedPlan.minAmount)} et ${selectedPlan.maxAmount ? formatCurrency(selectedPlan.maxAmount) : 'illimité'}` 
       });
       return;
     }
 
     setIsInvesting(true);
 
-    // Simulate API call
+    // Simulation d'appel API
     setTimeout(() => {
       setNotification({
         type: 'success',
-        message: `Successfully invested ${formatCurrency(amount)} in ${selectedPlan.name} plan!`
+        message: `Investissement de ${formatCurrency(amount)} dans le plan ${selectedPlan.name} réussi !`
       });
       setSelectedPlan(null);
       setInvestmentAmount('');
@@ -174,14 +174,14 @@ export function ClientPlansPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* En-tête */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Investment Plans
+            Plans d'Investissement
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Choose the perfect plan to maximize your returns
+            Choisissez le plan parfait pour maximiser vos rendements
           </p>
         </div>
       </div>
@@ -210,11 +210,11 @@ export function ClientPlansPage() {
         </Card>
       )}
 
-      {/* Active Subscriptions */}
+      {/* Souscriptions actives */}
       {activeSubscriptions.length > 0 && (
         <div>
           <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-            Active Investments
+            Investissements Actifs
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {activeSubscriptions.map((subscription) => (
@@ -223,26 +223,26 @@ export function ClientPlansPage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                        {subscription.planName} Plan
+                        Plan {subscription.planName}
                       </h3>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
                         {subscription.apy}% APY
                       </p>
                     </div>
-                    <Badge variant="success">Active</Badge>
+                    <Badge variant="success">Actif</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">Invested</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Investi</p>
                         <p className="text-lg font-semibold text-slate-900 dark:text-white">
                           {formatCurrency(subscription.amount)}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">Total Earned</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Total Gagné</p>
                         <p className="text-lg font-semibold text-green-600 dark:text-green-400">
                           {formatCurrency(subscription.totalEarned)}
                         </p>
@@ -251,23 +251,23 @@ export function ClientPlansPage() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">Daily Earning</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Gain Quotidien</p>
                         <p className="text-sm font-medium text-slate-900 dark:text-white">
                           {formatCurrency(subscription.dailyEarning)}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">Days Remaining</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Jours Restants</p>
                         <p className="text-sm font-medium text-slate-900 dark:text-white">
-                          {getDaysRemaining(subscription.endDate)} days
+                          {getDaysRemaining(subscription.endDate)} jours
                         </p>
                       </div>
                     </div>
 
-                    {/* Progress Bar */}
+                    {/* Barre de progression */}
                     <div>
                       <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400 mb-1">
-                        <span>Progress</span>
+                        <span>Progression</span>
                         <span>{getProgress(subscription.startDate, subscription.endDate).toFixed(1)}%</span>
                       </div>
                       <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
@@ -279,8 +279,8 @@ export function ClientPlansPage() {
                     </div>
 
                     <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
-                      <span>Started: {new Date(subscription.startDate).toLocaleDateString()}</span>
-                      <span>Ends: {new Date(subscription.endDate).toLocaleDateString()}</span>
+                      <span>Début : {new Date(subscription.startDate).toLocaleDateString('fr-FR')}</span>
+                      <span>Fin : {new Date(subscription.endDate).toLocaleDateString('fr-FR')}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -290,21 +290,21 @@ export function ClientPlansPage() {
         </div>
       )}
 
-      {/* Available Plans */}
+      {/* Plans disponibles */}
       <div>
         <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-          Available Plans
+          Plans Disponibles
         </h2>
         <div className="grid lg:grid-cols-3 gap-6">
           {plans.filter(plan => plan.isActive).map((plan) => (
             <Card 
               key={plan.id} 
-              className={`relative ${plan.name === 'Growth' ? 'ring-2 ring-blue-500 scale-105' : ''}`}
+              className={`relative ${plan.name === 'Croissance' ? 'ring-2 ring-blue-500 scale-105' : ''}`}
             >
-              {plan.name === 'Growth' && (
+              {plan.name === 'Croissance' && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <Badge variant="info" className="bg-blue-600 text-white px-4 py-1">
-                    Most Popular
+                    Plus Populaire
                   </Badge>
                 </div>
               )}
@@ -325,21 +325,21 @@ export function ClientPlansPage() {
               <CardContent>
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-slate-600 dark:text-slate-400 text-sm">Duration</span>
+                    <span className="text-slate-600 dark:text-slate-400 text-sm">Durée</span>
                     <span className="font-semibold text-slate-900 dark:text-white text-sm">
-                      {plan.durationDays} days
+                      {plan.durationDays} jours
                     </span>
                   </div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-slate-600 dark:text-slate-400 text-sm">Min Investment</span>
+                    <span className="text-slate-600 dark:text-slate-400 text-sm">Investissement Min</span>
                     <span className="font-semibold text-slate-900 dark:text-white text-sm">
                       {formatCurrency(plan.minAmount)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-slate-600 dark:text-slate-400 text-sm">Max Investment</span>
+                    <span className="text-slate-600 dark:text-slate-400 text-sm">Investissement Max</span>
                     <span className="font-semibold text-slate-900 dark:text-white text-sm">
-                      {plan.maxAmount ? formatCurrency(plan.maxAmount) : 'Unlimited'}
+                      {plan.maxAmount ? formatCurrency(plan.maxAmount) : 'Illimité'}
                     </span>
                   </div>
                 </div>
@@ -357,11 +357,11 @@ export function ClientPlansPage() {
 
                 <Button 
                   className="w-full" 
-                  variant={plan.name === 'Growth' ? 'primary' : 'outline'}
+                  variant={plan.name === 'Croissance' ? 'primary' : 'outline'}
                   onClick={() => setSelectedPlan(plan)}
                 >
                   <Plus className="h-4 w-4 mr-2" />
-                  Invest Now
+                  Investir Maintenant
                 </Button>
               </CardContent>
             </Card>
@@ -369,23 +369,23 @@ export function ClientPlansPage() {
         </div>
       </div>
 
-      {/* Investment Modal */}
+      {/* Modal d'investissement */}
       {selectedPlan && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <Card className="w-full max-w-md">
             <CardHeader>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
-                Invest in {selectedPlan.name} Plan
+                Investir dans le Plan {selectedPlan.name}
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                {selectedPlan.apy}% APY for {selectedPlan.durationDays} days
+                {selectedPlan.apy}% APY pour {selectedPlan.durationDays} jours
               </p>
             </CardHeader>
             <CardContent className="space-y-4">
               <Input
-                label="Investment Amount (USD)"
+                label="Montant d'Investissement (EUR)"
                 type="number"
-                placeholder="Enter amount"
+                placeholder="Entrez le montant"
                 value={investmentAmount}
                 onChange={(e) => setInvestmentAmount(e.target.value)}
                 min={selectedPlan.minAmount}
@@ -393,26 +393,26 @@ export function ClientPlansPage() {
               />
 
               <div className="text-sm text-slate-500 dark:text-slate-400">
-                Min: {formatCurrency(selectedPlan.minAmount)} • 
-                Max: {selectedPlan.maxAmount ? formatCurrency(selectedPlan.maxAmount) : 'Unlimited'}
+                Min : {formatCurrency(selectedPlan.minAmount)} • 
+                Max : {selectedPlan.maxAmount ? formatCurrency(selectedPlan.maxAmount) : 'Illimité'}
               </div>
 
               {investmentAmount && parseFloat(investmentAmount) > 0 && (
                 <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                   <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                    Investment Summary:
+                    Résumé de l'Investissement :
                   </h4>
                   <div className="space-y-1 text-sm text-blue-700 dark:text-blue-300">
                     <div className="flex justify-between">
-                      <span>Investment:</span>
+                      <span>Investissement :</span>
                       <span>{formatCurrency(parseFloat(investmentAmount))}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Expected Return:</span>
+                      <span>Rendement Attendu :</span>
                       <span>{formatCurrency(calculateROI(parseFloat(investmentAmount), selectedPlan.apy, selectedPlan.durationDays))}</span>
                     </div>
                     <div className="flex justify-between font-medium">
-                      <span>Total After {selectedPlan.durationDays} days:</span>
+                      <span>Total Après {selectedPlan.durationDays} jours :</span>
                       <span>{formatCurrency(parseFloat(investmentAmount) + calculateROI(parseFloat(investmentAmount), selectedPlan.apy, selectedPlan.durationDays))}</span>
                     </div>
                   </div>
@@ -428,7 +428,7 @@ export function ClientPlansPage() {
                     setInvestmentAmount('');
                   }}
                 >
-                  Cancel
+                  Annuler
                 </Button>
                 <Button
                   className="flex-1"
@@ -436,7 +436,7 @@ export function ClientPlansPage() {
                   isLoading={isInvesting}
                   disabled={!investmentAmount || parseFloat(investmentAmount) < selectedPlan.minAmount}
                 >
-                  Confirm Investment
+                  Confirmer l'Investissement
                 </Button>
               </div>
             </CardContent>

@@ -119,10 +119,10 @@ export function WalletPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Wallet
+            Portefeuille
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Manage your crypto assets
+            Gérez vos actifs crypto
           </p>
         </div>
         <div className="flex items-center space-x-4">
@@ -133,11 +133,11 @@ export function WalletPage() {
             className="flex items-center space-x-2"
           >
             {hideBalances ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
-            <span>{hideBalances ? 'Show' : 'Hide'} Balances</span>
+            <span>{hideBalances ? 'Afficher' : 'Masquer'} les Soldes</span>
           </Button>
           <Button variant="ghost" size="sm">
             <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
+            Actualiser
           </Button>
         </div>
       </div>
@@ -176,7 +176,7 @@ export function WalletPage() {
               </div>
             </div>
             <h2 className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">
-              Total Portfolio Value
+              Valeur Totale du Portefeuille
             </h2>
             <p className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
               {hideBalances ? '••••••••' : formatCurrency(totalUSDValue)}
@@ -194,7 +194,7 @@ export function WalletPage() {
       <Card>
         <CardHeader>
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Select Asset
+            Sélectionner un Actif
           </h3>
         </CardHeader>
         <CardContent>
@@ -242,7 +242,7 @@ export function WalletPage() {
               }`}
             >
               <ArrowDownLeft className="h-4 w-4" />
-              <span>Deposit</span>
+              <span>Dépôt</span>
             </button>
             <button
               onClick={() => setActiveTab('withdraw')}
@@ -253,7 +253,7 @@ export function WalletPage() {
               }`}
             >
               <ArrowUpRight className="h-4 w-4" />
-              <span>Withdraw</span>
+              <span>Retrait</span>
             </button>
           </div>
         </CardHeader>
@@ -263,12 +263,12 @@ export function WalletPage() {
             <div className="space-y-6">
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                  Deposit {selectedAsset}
+                  Déposer {selectedAsset}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm">
-                  Send {selectedAsset} to the address below. Minimum deposit: {
-                    selectedAsset === 'BTC' ? '0.001 BTC' :
-                    selectedAsset === 'ETH' ? '0.01 ETH' :
+                  Envoyez {selectedAsset} à l'adresse ci-dessous. Dépôt minimum : {
+                    selectedAsset === 'BTC' ? '0,001 BTC' :
+                    selectedAsset === 'ETH' ? '0,01 ETH' :
                     '10 USDT/USDC'
                   }
                 </p>
@@ -288,7 +288,7 @@ export function WalletPage() {
                   {/* Address */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      {selectedAsset} Address
+                      Adresse {selectedAsset}
                     </label>
                     <div className="flex items-center space-x-2">
                       <Input
@@ -309,13 +309,13 @@ export function WalletPage() {
                   {/* Network Info */}
                   <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                     <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                      Important Notes:
+                      Notes Importantes :
                     </h4>
                     <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
-                      <li>• Only send {selectedAsset} to this address</li>
-                      <li>• Deposits require 3 network confirmations</li>
-                      <li>• Processing time: 10-30 minutes</li>
-                      <li>• Network: {selectedAsset === 'BTC' ? 'Bitcoin' : selectedAsset === 'ETH' ? 'Ethereum' : 'Ethereum (ERC-20)'}</li>
+                      <li>• Envoyez uniquement {selectedAsset} à cette adresse</li>
+                      <li>• Les dépôts nécessitent 3 confirmations réseau</li>
+                      <li>• Temps de traitement : 10-30 minutes</li>
+                      <li>• Réseau : {selectedAsset === 'BTC' ? 'Bitcoin' : selectedAsset === 'ETH' ? 'Ethereum' : 'Ethereum (ERC-20)'}</li>
                     </ul>
                   </div>
                 </div>
@@ -325,26 +325,26 @@ export function WalletPage() {
             <div className="space-y-6">
               <div className="text-center">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                  Withdraw {selectedAsset}
+                  Retirer {selectedAsset}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm">
-                  Available balance: {selectedWallet ? formatCrypto(selectedWallet.balance, selectedAsset) : '0'}
+                  Solde disponible : {selectedWallet ? formatCrypto(selectedWallet.balance, selectedAsset) : '0'}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <Input
-                  label="Withdrawal Address"
-                  placeholder={`Enter ${selectedAsset} address`}
+                  label="Adresse de Retrait"
+                  placeholder={`Entrez l'adresse ${selectedAsset}`}
                   value={withdrawAddress}
                   onChange={(e) => setWithdrawAddress(e.target.value)}
                   className="font-mono text-sm"
                 />
 
                 <Input
-                  label="Amount"
+                  label="Montant"
                   type="number"
-                  placeholder="0.00"
+                  placeholder="0,00"
                   value={withdrawAmount}
                   onChange={(e) => setWithdrawAmount(e.target.value)}
                   step="0.00000001"
@@ -353,20 +353,20 @@ export function WalletPage() {
                 {withdrawAmount && selectedWallet && (
                   <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-600 dark:text-slate-400">Amount:</span>
+                      <span className="text-slate-600 dark:text-slate-400">Montant :</span>
                       <span className="font-medium text-slate-900 dark:text-white">
                         {formatCrypto(parseFloat(withdrawAmount) || 0, selectedAsset)}
                       </span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-600 dark:text-slate-400">Network Fee:</span>
+                      <span className="text-slate-600 dark:text-slate-400">Frais de Réseau :</span>
                       <span className="font-medium text-slate-900 dark:text-white">
                         {formatCrypto(getNetworkFee(selectedAsset).amount, selectedAsset)}
                       </span>
                     </div>
                     <div className="border-t border-slate-200 dark:border-slate-700 pt-2">
                       <div className="flex justify-between text-sm font-medium">
-                        <span className="text-slate-900 dark:text-white">You'll receive:</span>
+                        <span className="text-slate-900 dark:text-white">Vous recevrez :</span>
                         <span className="text-slate-900 dark:text-white">
                           {formatCrypto(Math.max(0, (parseFloat(withdrawAmount) || 0) - getNetworkFee(selectedAsset).amount), selectedAsset)}
                         </span>
@@ -382,18 +382,18 @@ export function WalletPage() {
                   isLoading={isProcessing}
                   disabled={!withdrawAmount || !withdrawAddress || parseFloat(withdrawAmount) <= 0}
                 >
-                  {isProcessing ? 'Processing...' : 'Withdraw'}
+                  {isProcessing ? 'Traitement...' : 'Retirer'}
                 </Button>
 
                 <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
                   <div className="flex items-start space-x-2">
                     <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5" />
                     <div className="text-sm text-yellow-700 dark:text-yellow-300">
-                      <p className="font-medium mb-1">Withdrawal Policy:</p>
+                      <p className="font-medium mb-1">Politique de Retrait :</p>
                       <ul className="space-y-1">
-                        <li>• Withdrawals are processed within 24 hours</li>
-                        <li>• Minimum withdrawal: {selectedAsset === 'BTC' ? '0.001 BTC' : selectedAsset === 'ETH' ? '0.01 ETH' : '10 USDT/USDC'}</li>
-                        <li>• Daily limit: {formatCurrency(50000)}</li>
+                        <li>• Les retraits sont traités sous 24 heures</li>
+                        <li>• Retrait minimum : {selectedAsset === 'BTC' ? '0,001 BTC' : selectedAsset === 'ETH' ? '0,01 ETH' : '10 USDT/USDC'}</li>
+                        <li>• Limite quotidienne : {formatCurrency(50000)}</li>
                       </ul>
                     </div>
                   </div>
@@ -409,10 +409,10 @@ export function WalletPage() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Recent Wallet Activity
+              Activité Récente du Portefeuille
             </h3>
             <Button variant="ghost" size="sm">
-              View All
+              Voir Tout
             </Button>
           </div>
         </CardHeader>
@@ -436,7 +436,7 @@ export function WalletPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-900 dark:text-white">
-                      {tx.type === 'DEPOSIT' ? 'Deposit' : 'Withdrawal'}
+                      {tx.type === 'DEPOSIT' ? 'Dépôt' : 'Retrait'}
                     </p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
                       {formatCrypto(tx.amount, tx.asset)}
@@ -445,10 +445,12 @@ export function WalletPage() {
                 </div>
                 <div className="text-right">
                   <Badge variant={tx.status === 'COMPLETED' ? 'success' : 'warning'}>
-                    {tx.status}
+                    {tx.status === 'COMPLETED' ? 'Terminé' : 
+                     tx.status === 'PENDING' ? 'En attente' : 
+                     tx.status === 'REJECTED' ? 'Rejeté' : tx.status}
                   </Badge>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                    {new Date(tx.date).toLocaleDateString()}
+                    {new Date(tx.date).toLocaleDateString('fr-FR')}
                   </p>
                 </div>
               </div>

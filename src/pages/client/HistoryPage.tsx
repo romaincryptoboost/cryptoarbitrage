@@ -38,7 +38,7 @@ export function HistoryPage() {
   const [selectedStatus, setSelectedStatus] = useState<string>('ALL');
   const [dateRange, setDateRange] = useState<string>('30');
 
-  // Mock transaction data
+  // Données de transaction simulées
   const transactions: Transaction[] = [
     {
       id: '1',
@@ -66,7 +66,7 @@ export function HistoryPage() {
       asset: 'USDT',
       amount: 5000,
       status: 'COMPLETED',
-      planName: 'Growth Plan',
+      planName: 'Plan Croissance',
       timestamp: '2024-01-15T08:45:00Z'
     },
     {
@@ -103,7 +103,7 @@ export function HistoryPage() {
       asset: 'BTC',
       amount: 0.02,
       status: 'REJECTED',
-      notes: 'Invalid withdrawal address',
+      notes: 'Adresse de retrait invalide',
       timestamp: '2024-01-12T09:45:00Z'
     },
     {
@@ -112,7 +112,7 @@ export function HistoryPage() {
       asset: 'USDC',
       amount: 10000,
       status: 'COMPLETED',
-      planName: 'Premium Plan',
+      planName: 'Plan Premium',
       timestamp: '2024-01-10T15:20:00Z'
     }
   ];
@@ -152,24 +152,24 @@ export function HistoryPage() {
   const getTransactionDescription = (tx: Transaction) => {
     switch (tx.type) {
       case 'DEPOSIT':
-        return `Deposit ${formatCrypto(tx.amount, tx.asset)}`;
+        return `Dépôt ${formatCrypto(tx.amount, tx.asset)}`;
       case 'WITHDRAW':
-        return `Withdraw ${formatCrypto(tx.amount, tx.asset)}`;
+        return `Retrait ${formatCrypto(tx.amount, tx.asset)}`;
       case 'EXCHANGE':
-        return `Exchange ${tx.fromAsset} to ${tx.toAsset}`;
+        return `Échange ${tx.fromAsset} vers ${tx.toAsset}`;
       case 'INVEST':
-        return `Investment in ${tx.planName}`;
+        return `Investissement dans ${tx.planName}`;
       default:
         return 'Transaction';
     }
   };
 
   const exportTransactions = () => {
-    // Mock export functionality
+    // Fonctionnalité d'export simulée
     const csvContent = [
-      ['Date', 'Type', 'Asset', 'Amount', 'Status', 'Description'].join(','),
+      ['Date', 'Type', 'Actif', 'Montant', 'Statut', 'Description'].join(','),
       ...filteredTransactions.map(tx => [
-        new Date(tx.timestamp).toLocaleDateString(),
+        new Date(tx.timestamp).toLocaleDateString('fr-FR'),
         tx.type,
         tx.asset,
         tx.amount,
@@ -182,36 +182,36 @@ export function HistoryPage() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'transaction-history.csv';
+    a.download = 'historique-transactions.csv';
     a.click();
     window.URL.revokeObjectURL(url);
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* En-tête */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Transaction History
+            Historique des Transactions
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            View and manage your transaction history
+            Consultez et gérez votre historique de transactions
           </p>
         </div>
         <Button onClick={exportTransactions} variant="outline">
           <Download className="h-4 w-4 mr-2" />
-          Export CSV
+          Exporter CSV
         </Button>
       </div>
 
-      {/* Filters */}
+      {/* Filtres */}
       <Card>
         <CardHeader>
           <div className="flex items-center space-x-2">
             <Filter className="h-5 w-5 text-slate-600 dark:text-slate-400" />
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Filters
+              Filtres
             </h3>
           </div>
         </CardHeader>
@@ -220,7 +220,7 @@ export function HistoryPage() {
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
-                placeholder="Search transactions..."
+                placeholder="Rechercher des transactions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -232,11 +232,11 @@ export function HistoryPage() {
               onChange={(e) => setSelectedType(e.target.value)}
               className="px-4 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="ALL">All Types</option>
-              <option value="DEPOSIT">Deposits</option>
-              <option value="WITHDRAW">Withdrawals</option>
-              <option value="EXCHANGE">Exchanges</option>
-              <option value="INVEST">Investments</option>
+              <option value="ALL">Tous les Types</option>
+              <option value="DEPOSIT">Dépôts</option>
+              <option value="WITHDRAW">Retraits</option>
+              <option value="EXCHANGE">Échanges</option>
+              <option value="INVEST">Investissements</option>
             </select>
 
             <select
@@ -244,10 +244,10 @@ export function HistoryPage() {
               onChange={(e) => setSelectedStatus(e.target.value)}
               className="px-4 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="ALL">All Status</option>
-              <option value="COMPLETED">Completed</option>
-              <option value="PENDING">Pending</option>
-              <option value="REJECTED">Rejected</option>
+              <option value="ALL">Tous les Statuts</option>
+              <option value="COMPLETED">Terminé</option>
+              <option value="PENDING">En attente</option>
+              <option value="REJECTED">Rejeté</option>
             </select>
 
             <select
@@ -255,17 +255,17 @@ export function HistoryPage() {
               onChange={(e) => setDateRange(e.target.value)}
               className="px-4 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="7">Last 7 days</option>
-              <option value="30">Last 30 days</option>
-              <option value="90">Last 90 days</option>
-              <option value="365">Last year</option>
-              <option value="ALL">All time</option>
+              <option value="7">7 derniers jours</option>
+              <option value="30">30 derniers jours</option>
+              <option value="90">90 derniers jours</option>
+              <option value="365">Dernière année</option>
+              <option value="ALL">Tout</option>
             </select>
           </div>
         </CardContent>
       </Card>
 
-      {/* Transaction Stats */}
+      {/* Statistiques des transactions */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
           <CardContent className="pt-6">
@@ -288,7 +288,7 @@ export function HistoryPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Completed
+                  Terminées
                 </p>
                 <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                   {filteredTransactions.filter(tx => tx.status === 'COMPLETED').length}
@@ -304,7 +304,7 @@ export function HistoryPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Pending
+                  En attente
                 </p>
                 <p className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
                   {filteredTransactions.filter(tx => tx.status === 'PENDING').length}
@@ -320,7 +320,7 @@ export function HistoryPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Rejected
+                  Rejetées
                 </p>
                 <p className="text-2xl font-bold text-red-600 dark:text-red-400">
                   {filteredTransactions.filter(tx => tx.status === 'REJECTED').length}
@@ -332,7 +332,7 @@ export function HistoryPage() {
         </Card>
       </div>
 
-      {/* Transactions List */}
+      {/* Liste des transactions */}
       <Card>
         <CardHeader>
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -344,10 +344,10 @@ export function HistoryPage() {
             <div className="text-center py-12">
               <History className="h-12 w-12 text-slate-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-slate-900 dark:text-white mb-2">
-                No transactions found
+                Aucune transaction trouvée
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Try adjusting your filters to see more results.
+                Essayez d'ajuster vos filtres pour voir plus de résultats.
               </p>
             </div>
           ) : (
@@ -363,15 +363,15 @@ export function HistoryPage() {
                         {getTransactionDescription(tx)}
                       </p>
                       <div className="flex items-center space-x-4 text-sm text-slate-500 dark:text-slate-400">
-                        <span>ID: {tx.id}</span>
-                        <span>{new Date(tx.timestamp).toLocaleString()}</span>
+                        <span>ID : {tx.id}</span>
+                        <span>{new Date(tx.timestamp).toLocaleString('fr-FR')}</span>
                         {tx.txHash && (
-                          <span className="font-mono">Hash: {tx.txHash.substring(0, 8)}...</span>
+                          <span className="font-mono">Hash : {tx.txHash.substring(0, 8)}...</span>
                         )}
                       </div>
                       {tx.notes && (
                         <p className="text-sm text-red-600 dark:text-red-400 mt-1">
-                          Note: {tx.notes}
+                          Note : {tx.notes}
                         </p>
                       )}
                     </div>
@@ -389,7 +389,7 @@ export function HistoryPage() {
                         </p>
                         {tx.type === 'EXCHANGE' && tx.exchangeRate && (
                           <p className="text-sm text-slate-500 dark:text-slate-400">
-                            Rate: {tx.exchangeRate.toFixed(8)}
+                            Taux : {tx.exchangeRate.toFixed(8)}
                           </p>
                         )}
                       </div>
@@ -399,7 +399,8 @@ export function HistoryPage() {
                           tx.status === 'PENDING' ? 'warning' : 'error'
                         }
                       >
-                        {tx.status}
+                        {tx.status === 'COMPLETED' ? 'Terminé' :
+                         tx.status === 'PENDING' ? 'En attente' : 'Rejeté'}
                       </Badge>
                     </div>
                   </div>

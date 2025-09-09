@@ -44,7 +44,7 @@ export function ExchangePage() {
 
   const assets = ['BTC', 'ETH', 'USDT', 'USDC'] as const;
 
-  // Mock wallet balances
+  // Soldes de portefeuille simulés
   const walletBalances = {
     BTC: 0.15432,
     ETH: 2.8765,
@@ -52,7 +52,7 @@ export function ExchangePage() {
     USDC: 5000.00
   };
 
-  // Mock exchange history
+  // Historique d'échange simulé
   const exchangeHistory: ExchangeHistory[] = [
     {
       id: '1',
@@ -90,7 +90,7 @@ export function ExchangePage() {
     const interval = setInterval(async () => {
       const newRates = await cryptoAPI.fetchLatestRates();
       setRates(newRates);
-    }, 30000); // Update every 30 seconds
+    }, 30000); // Mise à jour toutes les 30 secondes
 
     return () => clearInterval(interval);
   }, []);
@@ -122,17 +122,17 @@ export function ExchangePage() {
     const balance = walletBalances[fromAsset];
 
     if (amount <= 0 || amount > balance) {
-      setNotification({ type: 'error', message: 'Insufficient balance or invalid amount' });
+      setNotification({ type: 'error', message: 'Solde insuffisant ou montant invalide' });
       return;
     }
 
     setIsProcessing(true);
 
-    // Simulate API call
+    // Simulation d'appel API
     setTimeout(() => {
       setNotification({
         type: 'success',
-        message: `Successfully exchanged ${formatCrypto(amount, fromAsset)} to ${formatCrypto(parseFloat(toAmount), toAsset)}`
+        message: `Échange réussi de ${formatCrypto(amount, fromAsset)} vers ${formatCrypto(parseFloat(toAmount), toAsset)}`
       });
       setFromAmount('');
       setToAmount('');
@@ -146,25 +146,25 @@ export function ExchangePage() {
   };
 
   const getSpread = () => {
-    // Mock spread calculation (typically 0.1-0.5%)
+    // Calcul de spread simulé (généralement 0,1-0,5%)
     return 0.25;
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* En-tête */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Exchange
+            Échange
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Swap your crypto assets instantly
+            Échangez vos actifs crypto instantanément
           </p>
         </div>
         <Button variant="ghost" size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh Rates
+          Actualiser les Taux
         </Button>
       </div>
 
@@ -192,20 +192,20 @@ export function ExchangePage() {
         </Card>
       )}
 
-      {/* Exchange Interface */}
+      {/* Interface d'échange */}
       <div className="grid lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Instant Exchange
+                Échange Instantané
               </h3>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* From Asset */}
+              {/* Actif source */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  From
+                  De
                 </label>
                 <div className="flex space-x-4">
                   <select
@@ -219,7 +219,7 @@ export function ExchangePage() {
                   </select>
                   <Input
                     type="number"
-                    placeholder="0.00"
+                    placeholder="0,00"
                     value={fromAmount}
                     onChange={(e) => setFromAmount(e.target.value)}
                     step="0.00000001"
@@ -227,11 +227,11 @@ export function ExchangePage() {
                   />
                 </div>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  Available: {formatCrypto(walletBalances[fromAsset], fromAsset)}
+                  Disponible : {formatCrypto(walletBalances[fromAsset], fromAsset)}
                 </p>
               </div>
 
-              {/* Swap Button */}
+              {/* Bouton d'échange */}
               <div className="flex justify-center">
                 <Button
                   variant="outline"
@@ -243,10 +243,10 @@ export function ExchangePage() {
                 </Button>
               </div>
 
-              {/* To Asset */}
+              {/* Actif de destination */}
               <div>
                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  To
+                  Vers
                 </label>
                 <div className="flex space-x-4">
                   <select
@@ -260,42 +260,42 @@ export function ExchangePage() {
                   </select>
                   <Input
                     type="number"
-                    placeholder="0.00"
+                    placeholder="0,00"
                     value={toAmount}
                     readOnly
                     className="flex-1 bg-slate-50 dark:bg-slate-800"
                   />
                 </div>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  Balance: {formatCrypto(walletBalances[toAsset], toAsset)}
+                  Solde : {formatCrypto(walletBalances[toAsset], toAsset)}
                 </p>
               </div>
 
-              {/* Exchange Details */}
+              {/* Détails de l'échange */}
               {fromAmount && toAmount && fromAsset !== toAsset && (
                 <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">Exchange Rate:</span>
+                    <span className="text-slate-600 dark:text-slate-400">Taux de Change :</span>
                     <span className="font-medium text-slate-900 dark:text-white">
                       1 {fromAsset} = {getExchangeRate().toFixed(8)} {toAsset}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">Spread:</span>
+                    <span className="text-slate-600 dark:text-slate-400">Spread :</span>
                     <span className="font-medium text-slate-900 dark:text-white">
                       {getSpread()}%
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">Processing Time:</span>
+                    <span className="text-slate-600 dark:text-slate-400">Temps de Traitement :</span>
                     <span className="font-medium text-slate-900 dark:text-white">
-                      Instant
+                      Instantané
                     </span>
                   </div>
                 </div>
               )}
 
-              {/* Exchange Button */}
+              {/* Bouton d'échange */}
               <Button
                 onClick={handleExchange}
                 className="w-full"
@@ -303,20 +303,20 @@ export function ExchangePage() {
                 isLoading={isProcessing}
                 disabled={!fromAmount || !toAmount || fromAsset === toAsset || parseFloat(fromAmount) <= 0}
               >
-                {isProcessing ? 'Processing Exchange...' : 'Exchange Now'}
+                {isProcessing ? 'Traitement de l\'Échange...' : 'Échanger Maintenant'}
               </Button>
 
-              {/* Disclaimer */}
+              {/* Avertissement */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                 <div className="flex items-start space-x-2">
                   <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div className="text-sm text-blue-700 dark:text-blue-300">
-                    <p className="font-medium mb-1">Exchange Information:</p>
+                    <p className="font-medium mb-1">Informations sur l'Échange :</p>
                     <ul className="space-y-1">
-                      <li>• Exchanges are processed instantly</li>
-                      <li>• Rates are updated every 30 seconds</li>
-                      <li>• No additional fees for exchanges</li>
-                      <li>• Minimum exchange: $10 equivalent</li>
+                      <li>• Les échanges sont traités instantanément</li>
+                      <li>• Les taux sont mis à jour toutes les 30 secondes</li>
+                      <li>• Aucun frais supplémentaire pour les échanges</li>
+                      <li>• Échange minimum : équivalent 10€</li>
                     </ul>
                   </div>
                 </div>
@@ -325,17 +325,17 @@ export function ExchangePage() {
           </Card>
         </div>
 
-        {/* Market Rates */}
+        {/* Taux du marché */}
         <div>
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Live Rates
+                  Taux en Direct
                 </h3>
                 <Badge variant="success" className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span>Live</span>
+                  <span>En Direct</span>
                 </Badge>
               </div>
             </CardHeader>
@@ -374,11 +374,11 @@ export function ExchangePage() {
         </div>
       </div>
 
-      {/* Exchange History */}
+      {/* Historique des échanges */}
       <Card>
         <CardHeader>
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Exchange History
+            Historique des Échanges
           </h3>
         </CardHeader>
         <CardContent>
@@ -394,7 +394,7 @@ export function ExchangePage() {
                       {formatCrypto(exchange.fromAmount, exchange.fromAsset)} → {formatCrypto(exchange.toAmount, exchange.toAsset)}
                     </p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Rate: 1 {exchange.fromAsset} = {exchange.rate.toFixed(8)} {exchange.toAsset}
+                      Taux : 1 {exchange.fromAsset} = {exchange.rate.toFixed(8)} {exchange.toAsset}
                     </p>
                   </div>
                 </div>
@@ -403,10 +403,11 @@ export function ExchangePage() {
                     exchange.status === 'COMPLETED' ? 'success' :
                     exchange.status === 'PENDING' ? 'warning' : 'error'
                   }>
-                    {exchange.status}
+                    {exchange.status === 'COMPLETED' ? 'Terminé' :
+                     exchange.status === 'PENDING' ? 'En attente' : 'Échoué'}
                   </Badge>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                    {new Date(exchange.timestamp).toLocaleDateString()}
+                    {new Date(exchange.timestamp).toLocaleDateString('fr-FR')}
                   </p>
                 </div>
               </div>

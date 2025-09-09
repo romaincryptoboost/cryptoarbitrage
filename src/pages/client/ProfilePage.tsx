@@ -56,10 +56,10 @@ export function ProfilePage() {
         email: profileData.email
       });
       
-      setNotification({ type: 'success', message: 'Profile updated successfully!' });
+      setNotification({ type: 'success', message: 'Profil mis à jour avec succès !' });
       setIsEditing(false);
     } catch (error) {
-      setNotification({ type: 'error', message: 'Failed to update profile' });
+      setNotification({ type: 'error', message: 'Échec de la mise à jour du profil' });
     } finally {
       setIsLoading(false);
     }
@@ -74,15 +74,15 @@ export function ProfilePage() {
     }
 
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      setNotification({ type: 'error', message: 'Passwords do not match' });
+      setNotification({ type: 'error', message: 'Les mots de passe ne correspondent pas' });
       return;
     }
 
     setIsLoading(true);
 
-    // Simulate API call
+    // Simulation d'appel API
     setTimeout(() => {
-      setNotification({ type: 'success', message: 'Password changed successfully!' });
+      setNotification({ type: 'success', message: 'Mot de passe changé avec succès !' });
       setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' });
       setIsChangingPassword(false);
       setIsLoading(false);
@@ -98,14 +98,14 @@ export function ProfilePage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* En-tête */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Profile Settings
+            Paramètres du Profil
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Manage your account settings and preferences
+            Gérez les paramètres de votre compte et vos préférences
           </p>
         </div>
       </div>
@@ -135,7 +135,7 @@ export function ProfilePage() {
       )}
 
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Profile Information */}
+        {/* Informations du profil */}
         <div className="lg:col-span-2 space-y-6">
           <Card>
             <CardHeader>
@@ -143,7 +143,7 @@ export function ProfilePage() {
                 <div className="flex items-center space-x-2">
                   <User className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                    Personal Information
+                    Informations Personnelles
                   </h3>
                 </div>
                 <Button
@@ -151,20 +151,20 @@ export function ProfilePage() {
                   size="sm"
                   onClick={() => setIsEditing(!isEditing)}
                 >
-                  {isEditing ? 'Cancel' : 'Edit'}
+                  {isEditing ? 'Annuler' : 'Modifier'}
                 </Button>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <Input
-                  label="First Name"
+                  label="Prénom"
                   value={profileData.firstName}
                   onChange={(e) => setProfileData(prev => ({ ...prev, firstName: e.target.value }))}
                   disabled={!isEditing}
                 />
                 <Input
-                  label="Last Name"
+                  label="Nom"
                   value={profileData.lastName}
                   onChange={(e) => setProfileData(prev => ({ ...prev, lastName: e.target.value }))}
                   disabled={!isEditing}
@@ -172,7 +172,7 @@ export function ProfilePage() {
               </div>
               
               <Input
-                label="Email Address"
+                label="Adresse Email"
                 type="email"
                 value={profileData.email}
                 onChange={(e) => setProfileData(prev => ({ ...prev, email: e.target.value }))}
@@ -187,7 +187,7 @@ export function ProfilePage() {
                     isLoading={isLoading}
                     className="flex-1"
                   >
-                    Save Changes
+                    Enregistrer les Modifications
                   </Button>
                   <Button
                     variant="outline"
@@ -201,20 +201,20 @@ export function ProfilePage() {
                     }}
                     className="flex-1"
                   >
-                    Cancel
+                    Annuler
                   </Button>
                 </div>
               )}
             </CardContent>
           </Card>
 
-          {/* Security Settings */}
+          {/* Paramètres de sécurité */}
           <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Security Settings
+                  Paramètres de Sécurité
                 </h3>
               </div>
             </CardHeader>
@@ -224,9 +224,9 @@ export function ProfilePage() {
                   <div className="flex items-center space-x-3">
                     <Key className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                     <div>
-                      <p className="font-medium text-slate-900 dark:text-white">Password</p>
+                      <p className="font-medium text-slate-900 dark:text-white">Mot de Passe</p>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Last changed: {user?.passwordChanged ? 'Recently' : 'Never'}
+                        Dernière modification : {user?.passwordChanged ? 'Récemment' : 'Jamais'}
                       </p>
                     </div>
                   </div>
@@ -235,14 +235,14 @@ export function ProfilePage() {
                     size="sm"
                     onClick={() => setIsChangingPassword(true)}
                   >
-                    Change Password
+                    Changer le Mot de Passe
                   </Button>
                 </div>
               ) : (
                 <div className="space-y-4">
                   <div className="relative">
                     <Input
-                      label="Current Password"
+                      label="Mot de Passe Actuel"
                       type={showPasswords.current ? 'text' : 'password'}
                       value={passwordData.currentPassword}
                       onChange={(e) => setPasswordData(prev => ({ ...prev, currentPassword: e.target.value }))}
@@ -259,7 +259,7 @@ export function ProfilePage() {
 
                   <div className="relative">
                     <Input
-                      label="New Password"
+                      label="Nouveau Mot de Passe"
                       type={showPasswords.new ? 'text' : 'password'}
                       value={passwordData.newPassword}
                       onChange={(e) => setPasswordData(prev => ({ ...prev, newPassword: e.target.value }))}
@@ -276,7 +276,7 @@ export function ProfilePage() {
 
                   <div className="relative">
                     <Input
-                      label="Confirm New Password"
+                      label="Confirmer le Nouveau Mot de Passe"
                       type={showPasswords.confirm ? 'text' : 'password'}
                       value={passwordData.confirmPassword}
                       onChange={(e) => setPasswordData(prev => ({ ...prev, confirmPassword: e.target.value }))}
@@ -293,19 +293,19 @@ export function ProfilePage() {
 
                   {passwordData.newPassword && (
                     <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
-                      <p className="text-sm text-blue-700 dark:text-blue-300 mb-2">Password Requirements:</p>
+                      <p className="text-sm text-blue-700 dark:text-blue-300 mb-2">Exigences du Mot de Passe :</p>
                       <ul className="text-xs text-blue-600 dark:text-blue-400 space-y-1">
                         <li className={validatePassword(passwordData.newPassword).valid ? 'text-green-600 dark:text-green-400' : ''}>
-                          • At least 8 characters long
+                          • Au moins 8 caractères
                         </li>
                         <li className={/[A-Z]/.test(passwordData.newPassword) ? 'text-green-600 dark:text-green-400' : ''}>
-                          • Contains uppercase letter
+                          • Contient une lettre majuscule
                         </li>
                         <li className={/[a-z]/.test(passwordData.newPassword) ? 'text-green-600 dark:text-green-400' : ''}>
-                          • Contains lowercase letter
+                          • Contient une lettre minuscule
                         </li>
                         <li className={/\d/.test(passwordData.newPassword) ? 'text-green-600 dark:text-green-400' : ''}>
-                          • Contains number
+                          • Contient un chiffre
                         </li>
                       </ul>
                     </div>
@@ -318,7 +318,7 @@ export function ProfilePage() {
                       disabled={!passwordData.currentPassword || !passwordData.newPassword || !passwordData.confirmPassword}
                       className="flex-1"
                     >
-                      Update Password
+                      Mettre à Jour le Mot de Passe
                     </Button>
                     <Button
                       variant="outline"
@@ -328,7 +328,7 @@ export function ProfilePage() {
                       }}
                       className="flex-1"
                     >
-                      Cancel
+                      Annuler
                     </Button>
                   </div>
                 </div>
@@ -337,53 +337,53 @@ export function ProfilePage() {
           </Card>
         </div>
 
-        {/* Account Overview & Preferences */}
+        {/* Aperçu du compte et préférences */}
         <div className="space-y-6">
-          {/* Account Status */}
+          {/* Statut du compte */}
           <Card>
             <CardHeader>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Account Status
+                Statut du Compte
               </h3>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 dark:text-slate-400">Role</span>
+                <span className="text-slate-600 dark:text-slate-400">Rôle</span>
                 <Badge variant={user?.role === 'ADMIN' ? 'info' : 'default'}>
-                  {user?.role}
+                  {user?.role === 'ADMIN' ? 'Administrateur' : 'Client'}
                 </Badge>
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 dark:text-slate-400">Status</span>
+                <span className="text-slate-600 dark:text-slate-400">Statut</span>
                 <Badge variant={user?.status === 'ACTIVE' ? 'success' : 'error'}>
-                  {user?.status}
+                  {user?.status === 'ACTIVE' ? 'Actif' : 'Suspendu'}
                 </Badge>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 dark:text-slate-400">Member Since</span>
+                <span className="text-slate-600 dark:text-slate-400">Membre Depuis</span>
                 <span className="text-sm text-slate-900 dark:text-white">
-                  January 2024
+                  Janvier 2024
                 </span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 dark:text-slate-400">Last Login</span>
+                <span className="text-slate-600 dark:text-slate-400">Dernière Connexion</span>
                 <span className="text-sm text-slate-900 dark:text-white">
-                  {new Date().toLocaleDateString()}
+                  {new Date().toLocaleDateString('fr-FR')}
                 </span>
               </div>
             </CardContent>
           </Card>
 
-          {/* Preferences */}
+          {/* Préférences */}
           <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <Settings className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Preferences
+                  Préférences
                 </h3>
               </div>
             </CardHeader>
@@ -396,9 +396,9 @@ export function ProfilePage() {
                     <Sun className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                   )}
                   <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Theme</p>
+                    <p className="font-medium text-slate-900 dark:text-white">Thème</p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                      {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+                      {theme === 'dark' ? 'Mode sombre' : 'Mode clair'}
                     </p>
                   </div>
                 </div>
@@ -407,49 +407,49 @@ export function ProfilePage() {
                   size="sm"
                   onClick={toggleTheme}
                 >
-                  Switch to {theme === 'dark' ? 'Light' : 'Dark'}
+                  Passer au {theme === 'dark' ? 'Clair' : 'Sombre'}
                 </Button>
               </div>
 
               <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Email Notifications</p>
+                    <p className="font-medium text-slate-900 dark:text-white">Notifications Email</p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Receive updates via email
+                      Recevoir les mises à jour par email
                     </p>
                   </div>
-                  <Badge variant="warning">Disabled</Badge>
+                  <Badge variant="warning">Désactivé</Badge>
                 </div>
               </div>
 
               <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Two-Factor Auth</p>
+                    <p className="font-medium text-slate-900 dark:text-white">Authentification à Deux Facteurs</p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Extra security for your account
+                      Sécurité supplémentaire pour votre compte
                     </p>
                   </div>
-                  <Badge variant="warning">Not Enabled</Badge>
+                  <Badge variant="warning">Non Activé</Badge>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Account Actions */}
+          {/* Actions du compte */}
           <Card>
             <CardHeader>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Account Actions
+                Actions du Compte
               </h3>
             </CardHeader>
             <CardContent className="space-y-3">
               <Button variant="outline" className="w-full justify-start">
-                Download Account Data
+                Télécharger les Données du Compte
               </Button>
               <Button variant="outline" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20">
-                Request Account Deletion
+                Demander la Suppression du Compte
               </Button>
             </CardContent>
           </Card>

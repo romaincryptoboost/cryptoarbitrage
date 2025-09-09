@@ -16,11 +16,11 @@ export function formatCurrency(amount: number, currency: string = 'USD'): string
 
 export function formatCrypto(amount: number, symbol: string): string {
   const decimals = symbol === 'BTC' ? 8 : symbol === 'ETH' ? 6 : 2;
-  return `${amount.toFixed(decimals)} ${symbol}`;
+  return `${amount.toLocaleString('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })} ${symbol}`;
 }
 
 export function formatPercent(value: number): string {
-  return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+  return `${value >= 0 ? '+' : ''}${value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
 }
 
 export function generateWalletAddress(asset: string): string {
@@ -90,19 +90,19 @@ export function validatePassword(password: string): { valid: boolean; errors: st
   const errors: string[] = [];
   
   if (password.length < 8) {
-    errors.push('Password must be at least 8 characters long');
+    errors.push('Le mot de passe doit contenir au moins 8 caractères');
   }
   
   if (!/[A-Z]/.test(password)) {
-    errors.push('Password must contain at least one uppercase letter');
+    errors.push('Le mot de passe doit contenir au moins une lettre majuscule');
   }
   
   if (!/[a-z]/.test(password)) {
-    errors.push('Password must contain at least one lowercase letter');
+    errors.push('Le mot de passe doit contenir au moins une lettre minuscule');
   }
   
   if (!/\d/.test(password)) {
-    errors.push('Password must contain at least one number');
+    errors.push('Le mot de passe doit contenir au moins un chiffre');
   }
   
   return {

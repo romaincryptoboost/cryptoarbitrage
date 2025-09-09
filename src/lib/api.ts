@@ -22,28 +22,28 @@ const mockRates: RatesCache = {
   BTC: {
     symbol: 'BTC',
     name: 'Bitcoin',
-    price: 43250.75,
+    price: 39875.50,
     change24h: 2.34,
     lastUpdated: new Date()
   },
   ETH: {
     symbol: 'ETH',
     name: 'Ethereum',
-    price: 2650.32,
+    price: 2450.75,
     change24h: -0.87,
     lastUpdated: new Date()
   },
   USDT: {
     symbol: 'USDT',
     name: 'Tether',
-    price: 1.0001,
+    price: 0.92,
     change24h: 0.01,
     lastUpdated: new Date()
   },
   USDC: {
     symbol: 'USDC',
     name: 'USD Coin',
-    price: 0.9999,
+    price: 0.92,
     change24h: -0.01,
     lastUpdated: new Date()
   },
@@ -108,7 +108,7 @@ export class CryptoAPI {
       this.lastFetch = now;
       return this.ratesCache;
     } catch (error) {
-      console.error('Failed to fetch crypto rates:', error);
+      console.error('Échec de récupération des taux crypto:', error);
       return this.ratesCache; // Return cached data on error
     }
   }

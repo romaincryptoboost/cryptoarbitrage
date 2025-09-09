@@ -26,21 +26,21 @@ export function Sidebar({ className }: SidebarProps) {
   const isAdmin = user?.role === 'ADMIN';
 
   const clientNavItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/client' },
-    { icon: Wallet, label: 'Wallet', href: '/client/wallet' },
-    { icon: ArrowLeftRight, label: 'Exchange', href: '/client/exchange' },
+    { icon: LayoutDashboard, label: 'Tableau de Bord', href: '/client' },
+    { icon: Wallet, label: 'Portefeuille', href: '/client/wallet' },
+    { icon: ArrowLeftRight, label: 'Échange', href: '/client/exchange' },
     { icon: Target, label: 'Plans', href: '/client/plans' },
-    { icon: History, label: 'History', href: '/client/history' },
-    { icon: User, label: 'Profile', href: '/client/profile' }
+    { icon: History, label: 'Historique', href: '/client/history' },
+    { icon: User, label: 'Profil', href: '/client/profile' }
   ];
 
   const adminNavItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/admin' },
-    { icon: Users, label: 'Users', href: '/admin/users' },
+    { icon: LayoutDashboard, label: 'Tableau de Bord', href: '/admin' },
+    { icon: Users, label: 'Utilisateurs', href: '/admin/users' },
     { icon: Receipt, label: 'Transactions', href: '/admin/transactions' },
     { icon: Target, label: 'Plans', href: '/admin/plans' },
-    { icon: Wallet, label: 'Wallets', href: '/admin/wallets' },
-    { icon: TrendingUp, label: 'Rates', href: '/admin/rates' }
+    { icon: Wallet, label: 'Portefeuilles', href: '/admin/wallets' },
+    { icon: TrendingUp, label: 'Taux', href: '/admin/rates' }
   ];
 
   const navItems = isAdmin ? adminNavItems : clientNavItems;

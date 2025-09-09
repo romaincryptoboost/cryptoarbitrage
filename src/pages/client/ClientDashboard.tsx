@@ -145,10 +145,10 @@ export function ClientDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Welcome back, {user?.firstName || 'Investor'}!
+            Bon retour, {user?.firstName || 'Investisseur'} !
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Here's your portfolio overview
+            Voici un aperçu de votre portefeuille
           </p>
         </div>
         <Button
@@ -158,7 +158,7 @@ export function ClientDashboard() {
           className="flex items-center space-x-2"
         >
           {hideBalances ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
-          <span>{hideBalances ? 'Show' : 'Hide'} Balances</span>
+          <span>{hideBalances ? 'Afficher' : 'Masquer'} les Soldes</span>
         </Button>
       </div>
 
@@ -169,7 +169,7 @@ export function ClientDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Total Portfolio
+                  Portefeuille Total
                 </p>
                 <p className="text-2xl font-bold text-slate-900 dark:text-white">
                   {hideBalances ? '••••••' : formatCurrency(totalUSDValue)}
@@ -182,7 +182,7 @@ export function ClientDashboard() {
             <div className="flex items-center mt-4 text-sm">
               <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
               <span className="text-green-600 dark:text-green-400">
-                +{formatPercent(8.5)} this month
+                +{formatPercent(8.5)} ce mois
               </span>
             </div>
           </CardContent>
@@ -193,7 +193,7 @@ export function ClientDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Active Investments
+                  Investissements Actifs
                 </p>
                 <p className="text-2xl font-bold text-slate-900 dark:text-white">
                   {hideBalances ? '••••••' : formatCurrency(totalInvestments)}
@@ -205,7 +205,7 @@ export function ClientDashboard() {
             </div>
             <div className="flex items-center mt-4 text-sm">
               <span className="text-slate-600 dark:text-slate-400">
-                {activeInvestments.length} plans active
+                {activeInvestments.length} plans actifs
               </span>
             </div>
           </CardContent>
@@ -216,7 +216,7 @@ export function ClientDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Total Earnings
+                  Gains Totaux
                 </p>
                 <p className="text-2xl font-bold text-slate-900 dark:text-white">
                   {hideBalances ? '••••••' : formatCurrency(totalEarnings)}
@@ -228,7 +228,7 @@ export function ClientDashboard() {
             </div>
             <div className="flex items-center mt-4 text-sm">
               <span className="text-green-600 dark:text-green-400">
-                +{formatCurrency(45.75)} today
+                +{formatCurrency(45.75)} aujourd'hui
               </span>
             </div>
           </CardContent>
@@ -239,10 +239,10 @@ export function ClientDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Average APY
+                  Rendement Moyen
                 </p>
                 <p className="text-2xl font-bold text-slate-900 dark:text-white">
-                  13.2%
+                  13,2%
                 </p>
               </div>
               <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full">
@@ -251,7 +251,7 @@ export function ClientDashboard() {
             </div>
             <div className="flex items-center mt-4 text-sm">
               <span className="text-slate-600 dark:text-slate-400">
-                Across all plans
+                Sur tous les plans
               </span>
             </div>
           </CardContent>
@@ -263,7 +263,7 @@ export function ClientDashboard() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Portfolio Performance
+              Performance du Portefeuille
             </h3>
             <div className="flex items-center space-x-2">
               <div className="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
@@ -295,32 +295,32 @@ export function ClientDashboard() {
         <Card>
           <CardHeader>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Quick Actions
+              Actions Rapides
             </h3>
           </CardHeader>
           <CardContent className="space-y-4">
             <Link to="/client/wallet">
               <Button variant="outline" className="w-full justify-start">
                 <ArrowDownLeft className="h-4 w-4 mr-2" />
-                Deposit Crypto
+                Déposer des Cryptos
               </Button>
             </Link>
             <Link to="/client/wallet">
               <Button variant="outline" className="w-full justify-start">
                 <ArrowUpRight className="h-4 w-4 mr-2" />
-                Withdraw Funds
+                Retirer des Fonds
               </Button>
             </Link>
             <Link to="/client/exchange">
               <Button variant="outline" className="w-full justify-start">
                 <ArrowLeftRight className="h-4 w-4 mr-2" />
-                Exchange Crypto
+                Échanger des Cryptos
               </Button>
             </Link>
             <Link to="/client/plans">
               <Button variant="primary" className="w-full justify-start">
                 <Plus className="h-4 w-4 mr-2" />
-                New Investment
+                Nouvel Investissement
               </Button>
             </Link>
           </CardContent>
@@ -331,11 +331,11 @@ export function ClientDashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Recent Transactions
+                Transactions Récentes
               </h3>
               <Link to="/client/history">
                 <Button variant="ghost" size="sm">
-                  View All
+                  Voir Tout
                 </Button>
               </Link>
             </div>
@@ -348,7 +348,10 @@ export function ClientDashboard() {
                     {getTransactionIcon(tx.type)}
                     <div>
                       <p className="font-medium text-slate-900 dark:text-white">
-                        {tx.type.toLowerCase().charAt(0).toUpperCase() + tx.type.toLowerCase().slice(1)}
+                        {tx.type === 'DEPOSIT' ? 'Dépôt' : 
+                         tx.type === 'WITHDRAW' ? 'Retrait' : 
+                         tx.type === 'EXCHANGE' ? 'Échange' : 
+                         tx.type === 'INVEST' ? 'Investissement' : tx.type}
                       </p>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
                         {formatCrypto(tx.amount, tx.asset)}
@@ -358,7 +361,7 @@ export function ClientDashboard() {
                   <div className="text-right">
                     {getStatusBadge(tx.status)}
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                      {new Date(tx.timestamp).toLocaleDateString()}
+                      {new Date(tx.timestamp).toLocaleDateString('fr-FR')}
                     </p>
                   </div>
                 </div>
@@ -373,11 +376,11 @@ export function ClientDashboard() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Wallet Balances
+              Soldes des Portefeuilles
             </h3>
             <Button variant="ghost" size="sm">
               <RefreshCw className="h-4 w-4 mr-2" />
-              Refresh
+              Actualiser
             </Button>
           </div>
         </CardHeader>
@@ -413,11 +416,11 @@ export function ClientDashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                Active Investments
+                Investissements Actifs
               </h3>
               <Link to="/client/plans">
                 <Button variant="ghost" size="sm">
-                  Manage Plans
+                  Gérer les Plans
                 </Button>
               </Link>
             </div>
@@ -439,21 +442,21 @@ export function ClientDashboard() {
                   </div>
                   <div className="grid grid-cols-3 gap-4 text-sm">
                     <div>
-                      <p className="text-slate-500 dark:text-slate-400">Invested</p>
+                      <p className="text-slate-500 dark:text-slate-400">Investi</p>
                       <p className="font-semibold text-slate-900 dark:text-white">
                         {hideBalances ? '••••••' : formatCurrency(investment.amount)}
                       </p>
                     </div>
                     <div>
-                      <p className="text-slate-500 dark:text-slate-400">Earned</p>
+                      <p className="text-slate-500 dark:text-slate-400">Gagné</p>
                       <p className="font-semibold text-green-600 dark:text-green-400">
                         {hideBalances ? '••••••' : formatCurrency(investment.totalEarned)}
                       </p>
                     </div>
                     <div>
-                      <p className="text-slate-500 dark:text-slate-400">Ends</p>
+                      <p className="text-slate-500 dark:text-slate-400">Se termine</p>
                       <p className="font-semibold text-slate-900 dark:text-white">
-                        {new Date(investment.endDate).toLocaleDateString()}
+                        {new Date(investment.endDate).toLocaleDateString('fr-FR')}
                       </p>
                     </div>
                   </div>

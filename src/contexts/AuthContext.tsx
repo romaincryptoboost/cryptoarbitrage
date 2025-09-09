@@ -29,8 +29,8 @@ const mockUsers: User[] = [
     email: 'admin@crypto-arbitrage.com',
     role: 'ADMIN',
     status: 'ACTIVE',
-    firstName: 'Admin',
-    lastName: 'User',
+    firstName: 'Administrateur',
+    lastName: 'Principal',
     theme: 'dark',
     passwordChanged: false
   },
@@ -39,8 +39,8 @@ const mockUsers: User[] = [
     email: 'client@example.com',
     role: 'CLIENT',
     status: 'ACTIVE',
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: 'Jean',
+    lastName: 'Dupont',
     theme: 'dark',
     passwordChanged: true
   }
@@ -67,7 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     
     if (!mockUser) {
       setIsLoading(false);
-      return { error: 'Invalid email or password' };
+      return { error: 'Email ou mot de passe invalide' };
     }
 
     // Mock password validation (admin123 for admin, any password for client)
@@ -77,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     if (!isValidPassword) {
       setIsLoading(false);
-      return { error: 'Invalid email or password' };
+      return { error: 'Email ou mot de passe invalide' };
     }
 
     setUser(mockUser);
@@ -98,7 +98,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Check if user already exists
     if (mockUsers.some(u => u.email === email)) {
       setIsLoading(false);
-      return { error: 'User with this email already exists' };
+      return { error: 'Un utilisateur avec cet email existe déjà' };
     }
 
     // Create new user

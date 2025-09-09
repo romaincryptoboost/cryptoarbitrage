@@ -52,7 +52,7 @@ export function Header({ className }: HeaderProps) {
             {isPublic ? (
               <>
                 <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Home
+                  Accueil
                 </Link>
                 <Link to="/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Plans
@@ -63,10 +63,10 @@ export function Header({ className }: HeaderProps) {
                 {isAdmin ? (
                   <>
                     <Link to="/admin" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      Dashboard
+                      Tableau de Bord
                     </Link>
                     <Link to="/admin/users" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      Users
+                      Utilisateurs
                     </Link>
                     <Link to="/admin/transactions" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       Transactions
@@ -75,13 +75,13 @@ export function Header({ className }: HeaderProps) {
                 ) : (
                   <>
                     <Link to="/client" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      Dashboard
+                      Tableau de Bord
                     </Link>
                     <Link to="/client/wallet" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      Wallet
+                      Portefeuille
                     </Link>
                     <Link to="/client/exchange" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      Exchange
+                      Échange
                     </Link>
                     <Link to="/client/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       Plans
@@ -142,12 +142,12 @@ export function Header({ className }: HeaderProps) {
               <>
                 <Link to="/auth/login">
                   <Button variant="ghost" size="sm">
-                    Login
+                    Connexion
                   </Button>
                 </Link>
                 <Link to="/auth/register">
                   <Button variant="primary" size="sm">
-                    Register
+                    S'inscrire
                   </Button>
                 </Link>
               </>
@@ -172,7 +172,7 @@ export function Header({ className }: HeaderProps) {
               {isPublic ? (
                 <>
                   <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    Home
+                    Accueil
                   </Link>
                   <Link to="/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     Plans
@@ -183,10 +183,10 @@ export function Header({ className }: HeaderProps) {
                   {isAdmin ? (
                     <>
                       <Link to="/admin" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        Dashboard
+                        Tableau de Bord
                       </Link>
                       <Link to="/admin/users" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        Users
+                        Utilisateurs
                       </Link>
                       <Link to="/admin/transactions" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         Transactions
@@ -195,13 +195,13 @@ export function Header({ className }: HeaderProps) {
                   ) : (
                     <>
                       <Link to="/client" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        Dashboard
+                        Tableau de Bord
                       </Link>
                       <Link to="/client/wallet" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        Wallet
+                        Portefeuille
                       </Link>
                       <Link to="/client/exchange" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        Exchange
+                        Échange
                       </Link>
                       <Link to="/client/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         Plans

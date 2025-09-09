@@ -21,49 +21,49 @@ export function HomePage() {
   const features = [
     {
       icon: Shield,
-      title: 'Secure Wallets',
-      description: 'Your crypto assets are stored in enterprise-grade wallets with military-grade encryption.'
+      title: 'Portefeuilles Sécurisés',
+      description: 'Vos actifs crypto sont stockés dans des portefeuilles de niveau entreprise avec un chiffrement militaire.'
     },
     {
       icon: TrendingUp,
-      title: 'High Returns',
-      description: 'Earn up to 15% APY on your crypto investments with our proven arbitrage strategies.'
+      title: 'Rendements Élevés',
+      description: 'Gagnez jusqu\'à 15% de rendement annuel sur vos investissements crypto avec nos stratégies d\'arbitrage éprouvées.'
     },
     {
       icon: Clock,
-      title: 'Real-time Trading',
-      description: 'Execute trades instantly with live market rates and minimal spreads.'
+      title: 'Trading en Temps Réel',
+      description: 'Exécutez des transactions instantanément avec des taux de marché en direct et des spreads minimaux.'
     },
     {
       icon: Zap,
-      title: 'Lightning Fast',
-      description: 'Process transactions in seconds with our optimized blockchain infrastructure.'
+      title: 'Ultra Rapide',
+      description: 'Traitez les transactions en quelques secondes avec notre infrastructure blockchain optimisée.'
     }
   ];
 
   const steps = [
     {
       step: '1',
-      title: 'Create Account',
-      description: 'Sign up in minutes with just your email and start your crypto journey.'
+      title: 'Créer un Compte',
+      description: 'Inscrivez-vous en quelques minutes avec juste votre email et commencez votre parcours crypto.'
     },
     {
       step: '2',
-      title: 'Deposit Crypto',
-      description: 'Fund your wallet with Bitcoin, Ethereum, USDT, or USDC.'
+      title: 'Déposer des Cryptos',
+      description: 'Alimentez votre portefeuille avec Bitcoin, Ethereum, USDT ou USDC.'
     },
     {
       step: '3',
-      title: 'Start Earning',
-      description: 'Choose from our investment plans and watch your portfolio grow.'
+      title: 'Commencer à Gagner',
+      description: 'Choisissez parmi nos plans d\'investissement et regardez votre portefeuille croître.'
     }
   ];
 
   const stats = [
-    { label: 'Active Users', value: '25,000+', icon: Users },
-    { label: 'Total Volume', value: '$2.5B+', icon: DollarSign },
-    { label: 'Average APY', value: '12.5%', icon: TrendingUp },
-    { label: 'Uptime', value: '99.9%', icon: Shield }
+    { label: 'Utilisateurs Actifs', value: '25 000+', icon: Users },
+    { label: 'Volume Total', value: '2,3 Md€+', icon: DollarSign },
+    { label: 'Rendement Moyen', value: '12,5%', icon: TrendingUp },
+    { label: 'Disponibilité', value: '99,9%', icon: Shield }
   ];
 
   return (
@@ -73,25 +73,25 @@ export function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 dark:from-blue-600/5 dark:to-purple-600/5" />
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Maximize Your Crypto
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Returns</span>
+            Maximisez Vos Gains
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Crypto</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
-            Join thousands of investors earning passive income through our professional 
-            crypto arbitrage platform. Secure, transparent, and profitable.
+            Rejoignez des milliers d'investisseurs qui génèrent des revenus passifs grâce à notre 
+            plateforme d'arbitrage crypto professionnelle. Sécurisée, transparente et rentable.
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link to="/auth/register">
               <Button size="lg" className="text-lg px-8 py-4 w-full sm:w-auto">
-                Open Account
+                Ouvrir un Compte
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/plans">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 w-full sm:w-auto">
-                View Plans
+                Voir les Plans
               </Button>
             </Link>
           </div>
@@ -142,10 +142,10 @@ export function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              Why Choose Crypto-Arbitrage?
+              Pourquoi Choisir Crypto-Arbitrage ?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-              Built for serious investors who want professional-grade crypto trading with institutional security.
+              Conçu pour les investisseurs sérieux qui veulent du trading crypto de niveau professionnel avec une sécurité institutionnelle.
             </p>
           </div>
 
@@ -175,10 +175,10 @@ export function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              Get Started in 3 Simple Steps
+              Commencez en 3 Étapes Simples
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              Begin your crypto investment journey today
+              Commencez votre parcours d'investissement crypto aujourd'hui
             </p>
           </div>
 
@@ -209,21 +209,21 @@ export function HomePage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Earning?
+            Prêt à Commencer à Gagner ?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of investors already earning passive income with Crypto-Arbitrage
+            Rejoignez des milliers d'investisseurs qui génèrent déjà des revenus passifs avec Crypto-Arbitrage
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/auth/register">
               <Button size="lg" variant="secondary" className="text-lg px-8 py-4 w-full sm:w-auto">
-                Create Free Account
+                Créer un Compte Gratuit
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/plans">
               <Button size="lg" variant="outline" className="text-lg px-8 py-4 w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-600">
-                Explore Plans
+                Explorer les Plans
               </Button>
             </Link>
           </div>

@@ -38,59 +38,59 @@ interface RecentActivity {
 export function AdminDashboard() {
   const [selectedPeriod, setSelectedPeriod] = useState<'24h' | '7d' | '30d'>('7d');
 
-  // Mock KPIs
+  // KPIs simulés
   const kpis: KPI[] = [
     {
-      label: 'Total Users',
-      value: '2,547',
-      change: '+12.5%',
+      label: 'Total Utilisateurs',
+      value: '2 547',
+      change: '+12,5%',
       trend: 'up',
       icon: Users
     },
     {
-      label: 'Total Volume (24h)',
-      value: '$1,234,567',
-      change: '+8.2%',
+      label: 'Volume Total (24h)',
+      value: '1 134 567€',
+      change: '+8,2%',
       trend: 'up',
       icon: DollarSign
     },
     {
-      label: 'Active Investments',
-      value: '$5,678,901',
-      change: '+15.7%',
+      label: 'Investissements Actifs',
+      value: '5 218 901€',
+      change: '+15,7%',
       trend: 'up',
       icon: TrendingUp
     },
     {
-      label: 'Pending Actions',
+      label: 'Actions en Attente',
       value: '23',
-      change: '-5.1%',
+      change: '-5,1%',
       trend: 'down',
       icon: AlertTriangle
     }
   ];
 
-  // Mock master wallet balances
+  // Soldes des portefeuilles maîtres simulés
   const masterWallets = [
-    { asset: 'BTC', balance: 125.45678, usdValue: 5423876.32, change24h: 2.34 },
-    { asset: 'ETH', balance: 2847.8765, usdValue: 7548923.45, change24h: -0.87 },
-    { asset: 'USDT', balance: 1542050.50, usdValue: 1542050.50, change24h: 0.01 },
-    { asset: 'USDC', balance: 987654.32, usdValue: 987654.32, change24h: -0.01 }
+    { asset: 'BTC', balance: 125.45678, usdValue: 4998876.32, change24h: 2.34 },
+    { asset: 'ETH', balance: 2847.8765, usdValue: 6973923.45, change24h: -0.87 },
+    { asset: 'USDT', balance: 1542050.50, usdValue: 1417926.46, change24h: 0.01 },
+    { asset: 'USDC', balance: 987654.32, usdValue: 908321.97, change24h: -0.01 }
   ];
 
-  // Mock recent activity
+  // Activité récente simulée
   const recentActivity: RecentActivity[] = [
     {
       id: '1',
       type: 'USER_REGISTRATION',
-      description: 'New user registered: john.doe@example.com',
+      description: 'Nouvel utilisateur inscrit : jean.dupont@example.com',
       timestamp: '2024-01-15T10:30:00Z',
       status: 'SUCCESS'
     },
     {
       id: '2',
       type: 'DEPOSIT',
-      description: 'Large deposit received',
+      description: 'Gros dépôt reçu',
       amount: 50000,
       asset: 'USDT',
       timestamp: '2024-01-15T09:15:00Z',
@@ -99,7 +99,7 @@ export function AdminDashboard() {
     {
       id: '3',
       type: 'WITHDRAWAL',
-      description: 'Withdrawal request pending approval',
+      description: 'Demande de retrait en attente d\'approbation',
       amount: 2.5,
       asset: 'BTC',
       timestamp: '2024-01-15T08:45:00Z',
@@ -108,7 +108,7 @@ export function AdminDashboard() {
     {
       id: '4',
       type: 'INVESTMENT',
-      description: 'New investment in Premium plan',
+      description: 'Nouvel investissement dans le plan Premium',
       amount: 25000,
       asset: 'USDC',
       timestamp: '2024-01-14T16:20:00Z',
@@ -117,7 +117,7 @@ export function AdminDashboard() {
     {
       id: '5',
       type: 'SYSTEM',
-      description: 'Daily accrual process completed',
+      description: 'Processus d\'accumulation quotidienne terminé',
       timestamp: '2024-01-14T00:00:00Z',
       status: 'SUCCESS'
     }
@@ -149,11 +149,11 @@ export function AdminDashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'SUCCESS':
-        return <Badge variant="success">Success</Badge>;
+        return <Badge variant="success">Succès</Badge>;
       case 'PENDING':
-        return <Badge variant="warning">Pending</Badge>;
+        return <Badge variant="warning">En attente</Badge>;
       case 'FAILED':
-        return <Badge variant="error">Failed</Badge>;
+        return <Badge variant="error">Échoué</Badge>;
       default:
         return <Badge>{status}</Badge>;
     }
@@ -161,19 +161,19 @@ export function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* En-tête */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Admin Dashboard
+            Tableau de Bord Admin
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mt-1">
-            Platform overview and key metrics
+            Aperçu de la plateforme et métriques clés
           </p>
         </div>
         <Button variant="ghost" size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh Data
+          Actualiser les Données
         </Button>
       </div>
 
@@ -194,12 +194,12 @@ export function AdminDashboard() {
                     </p>
                   </div>
                   <div className={`p-3 rounded-full ${
-                    kpi.label === 'Pending Actions' 
+                    kpi.label === 'Actions en Attente' 
                       ? 'bg-orange-100 dark:bg-orange-900/30' 
                       : 'bg-blue-100 dark:bg-blue-900/30'
                   }`}>
                     <Icon className={`h-6 w-6 ${
-                      kpi.label === 'Pending Actions'
+                      kpi.label === 'Actions en Attente'
                         ? 'text-orange-600 dark:text-orange-400'
                         : 'text-blue-600 dark:text-blue-400'
                     }`} />
@@ -209,7 +209,7 @@ export function AdminDashboard() {
                   <span className={`${
                     kpi.trend === 'up' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                   }`}>
-                    {kpi.change} from last period
+                    {kpi.change} par rapport à la période précédente
                   </span>
                 </div>
               </CardContent>
@@ -218,12 +218,12 @@ export function AdminDashboard() {
         })}
       </div>
 
-      {/* Platform Volume Chart */}
+      {/* Graphique du volume de la plateforme */}
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Platform Volume
+              Volume de la Plateforme
             </h3>
             <div className="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
               {(['24h', '7d', '30d'] as const).map((period) => (
@@ -248,17 +248,17 @@ export function AdminDashboard() {
       </Card>
 
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Master Wallets */}
+        {/* Portefeuilles Maîtres */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Master Wallets
+                  Portefeuilles Maîtres
                 </h3>
                 <Button variant="ghost" size="sm">
                   <Eye className="h-4 w-4 mr-2" />
-                  View All
+                  Voir Tout
                 </Button>
               </div>
             </CardHeader>
@@ -266,7 +266,7 @@ export function AdminDashboard() {
               <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg">
                 <div className="text-center">
                   <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">
-                    Total Master Wallet Value
+                    Valeur Totale des Portefeuilles Maîtres
                   </p>
                   <p className="text-3xl font-bold text-slate-900 dark:text-white">
                     {formatCurrency(totalMasterValue)}
@@ -300,11 +300,11 @@ export function AdminDashboard() {
           </Card>
         </div>
 
-        {/* Recent Activity */}
+        {/* Activité récente */}
         <Card>
           <CardHeader>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Recent Activity
+              Activité Récente
             </h3>
           </CardHeader>
           <CardContent>
@@ -325,7 +325,7 @@ export function AdminDashboard() {
                     )}
                     <div className="flex items-center justify-between mt-2">
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        {new Date(activity.timestamp).toLocaleString()}
+                        {new Date(activity.timestamp).toLocaleString('fr-FR')}
                       </p>
                       {getStatusBadge(activity.status)}
                     </div>
@@ -337,30 +337,30 @@ export function AdminDashboard() {
         </Card>
       </div>
 
-      {/* Quick Actions */}
+      {/* Actions rapides */}
       <Card>
         <CardHeader>
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Quick Actions
+            Actions Rapides
           </h3>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Button variant="outline" className="h-20 flex-col">
               <Users className="h-6 w-6 mb-2" />
-              <span>Manage Users</span>
+              <span>Gérer les Utilisateurs</span>
             </Button>
             <Button variant="outline" className="h-20 flex-col">
               <DollarSign className="h-6 w-6 mb-2" />
-              <span>Review Transactions</span>
+              <span>Examiner les Transactions</span>
             </Button>
             <Button variant="outline" className="h-20 flex-col">
               <Wallet className="h-6 w-6 mb-2" />
-              <span>Wallet Operations</span>
+              <span>Opérations de Portefeuille</span>
             </Button>
             <Button variant="outline" className="h-20 flex-col">
               <TrendingUp className="h-6 w-6 mb-2" />
-              <span>Update Rates</span>
+              <span>Mettre à Jour les Taux</span>
             </Button>
           </div>
         </CardContent>

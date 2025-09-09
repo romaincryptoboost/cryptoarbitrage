@@ -30,33 +30,33 @@ interface Plan {
 const mockPlans: Plan[] = [
   {
     id: '1',
-    name: 'Starter',
+    name: 'Débutant',
     apy: 8.5,
     durationDays: 30,
     minAmount: 100,
     maxAmount: 5000,
-    description: 'Perfect for beginners looking to start their crypto investment journey',
+    description: 'Parfait pour les débutants qui souhaitent commencer leur parcours d\'investissement crypto',
     features: [
-      'Daily compounding returns',
-      '24/7 customer support',
-      'Instant withdrawals',
-      'Mobile app access'
+      'Rendements composés quotidiens',
+      'Support client 24h/24 7j/7',
+      'Retraits instantanés',
+      'Accès application mobile'
     ]
   },
   {
     id: '2',
-    name: 'Growth',
+    name: 'Croissance',
     apy: 12.5,
     durationDays: 90,
     minAmount: 1000,
     maxAmount: 25000,
-    description: 'Ideal for growing your crypto portfolio with higher returns',
+    description: 'Idéal pour faire croître votre portefeuille crypto avec des rendements plus élevés',
     features: [
-      'Daily compounding returns',
-      'Priority customer support',
-      'Advanced analytics',
-      'Portfolio tracking',
-      'Risk management tools'
+      'Rendements composés quotidiens',
+      'Support client prioritaire',
+      'Analyses avancées',
+      'Suivi de portefeuille',
+      'Outils de gestion des risques'
     ],
     popular: true
   },
@@ -67,14 +67,14 @@ const mockPlans: Plan[] = [
     durationDays: 180,
     minAmount: 5000,
     maxAmount: 100000,
-    description: 'Maximum returns for serious investors with longer commitment',
+    description: 'Rendements maximaux pour les investisseurs sérieux avec un engagement plus long',
     features: [
-      'Daily compounding returns',
-      'Dedicated account manager',
-      'Custom investment strategies',
-      'Advanced risk controls',
-      'Institutional-grade security',
-      'White-glove service'
+      'Rendements composés quotidiens',
+      'Gestionnaire de compte dédié',
+      'Stratégies d\'investissement personnalisées',
+      'Contrôles de risque avancés',
+      'Sécurité de niveau institutionnel',
+      'Service haut de gamme'
     ]
   }
 ];
@@ -107,11 +107,11 @@ export function PlansPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            Investment Plans
+            Plans d'Investissement
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-3xl mx-auto">
-            Choose the perfect plan to maximize your crypto returns. All plans feature 
-            daily compounding and flexible withdrawal options.
+            Choisissez le plan parfait pour maximiser vos rendements crypto. Tous les plans offrent 
+            des intérêts composés quotidiens et des options de retrait flexibles.
           </p>
         </div>
 
@@ -125,10 +125,10 @@ export function PlansPage() {
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-2">
-                Investment Simulator
+                Simulateur d'Investissement
               </h2>
               <p className="text-center text-slate-600 dark:text-slate-300">
-                Calculate your potential returns across different investment plans
+                Calculez vos rendements potentiels selon différents plans d'investissement
               </p>
             </CardHeader>
             
@@ -136,7 +136,7 @@ export function PlansPage() {
               <div className="mb-6">
                 <Input
                   type="number"
-                  label="Investment Amount (USD)"
+                  label="Montant d'Investissement (EUR)"
                   value={investmentAmount}
                   onChange={(e) => setInvestmentAmount(Number(e.target.value))}
                   min="100"
@@ -172,23 +172,23 @@ export function PlansPage() {
               {simulationResults && selectedPlan && (
                 <Card className="p-6 bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800">
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-                    Simulation Results - {selectedPlan.name} Plan
+                    Résultats de Simulation - Plan {selectedPlan.name}
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Initial Investment</div>
+                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Investissement Initial</div>
                       <div className="text-xl font-bold text-slate-900 dark:text-white">
                         {formatCurrency(simulationResults.principal)}
                       </div>
                     </div>
                     <div>
-                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Total Returns</div>
+                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Rendements Totaux</div>
                       <div className="text-xl font-bold text-green-600 dark:text-green-400">
                         {formatCurrency(simulationResults.returns)}
                       </div>
                     </div>
                     <div>
-                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Final Amount</div>
+                      <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Montant Final</div>
                       <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                         {formatCurrency(simulationResults.total)}
                       </div>
@@ -212,7 +212,7 @@ export function PlansPage() {
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <Badge variant="info" className="bg-blue-600 text-white px-4 py-1">
                       <Star className="h-4 w-4 mr-1" />
-                      Most Popular
+                      Plus Populaire
                     </Badge>
                   </div>
                 )}
@@ -233,21 +233,21 @@ export function PlansPage() {
                 <CardContent>
                   <div className="mb-6">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-600 dark:text-slate-400">Duration</span>
+                      <span className="text-slate-600 dark:text-slate-400">Durée</span>
                       <span className="font-semibold text-slate-900 dark:text-white">
                         {plan.durationDays} days
                       </span>
                     </div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-600 dark:text-slate-400">Min Investment</span>
+                      <span className="text-slate-600 dark:text-slate-400">Investissement Min</span>
                       <span className="font-semibold text-slate-900 dark:text-white">
                         {formatCurrency(plan.minAmount)}
                       </span>
                     </div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-slate-600 dark:text-slate-400">Max Investment</span>
+                      <span className="text-slate-600 dark:text-slate-400">Investissement Max</span>
                       <span className="font-semibold text-slate-900 dark:text-white">
-                        {plan.maxAmount ? formatCurrency(plan.maxAmount) : 'Unlimited'}
+                        {plan.maxAmount ? formatCurrency(plan.maxAmount) : 'Illimité'}
                       </span>
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export function PlansPage() {
                           className="w-full" 
                           variant={plan.popular ? 'primary' : 'outline'}
                         >
-                          Select Plan
+                          Sélectionner le Plan
                         </Button>
                       </Link>
                     ) : (
@@ -279,7 +279,7 @@ export function PlansPage() {
                           className="w-full" 
                           variant={plan.popular ? 'primary' : 'outline'}
                         >
-                          Get Started
+                          Commencer
                         </Button>
                       </Link>
                     )}
@@ -300,10 +300,10 @@ export function PlansPage() {
                 <Shield className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                Bank-Level Security
+                Sécurité Bancaire
               </h3>
               <p className="text-slate-600 dark:text-slate-300">
-                Your investments are protected with military-grade encryption and cold storage.
+                Vos investissements sont protégés par un chiffrement militaire et un stockage à froid.
               </p>
             </div>
             <div className="flex flex-col items-center">
@@ -311,10 +311,10 @@ export function PlansPage() {
                 <TrendingUp className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                Proven Returns
+                Rendements Prouvés
               </h3>
               <p className="text-slate-600 dark:text-slate-300">
-                Track record of consistent returns backed by professional arbitrage strategies.
+                Historique de rendements constants soutenus par des stratégies d'arbitrage professionnelles.
               </p>
             </div>
             <div className="flex flex-col items-center">
@@ -322,10 +322,10 @@ export function PlansPage() {
                 <Clock className="h-8 w-8 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                24/7 Monitoring
+                Surveillance 24h/24
               </h3>
               <p className="text-slate-600 dark:text-slate-300">
-                Our team monitors markets around the clock to maximize your returns.
+                Notre équipe surveille les marchés 24h/24 pour maximiser vos rendements.
               </p>
             </div>
           </div>

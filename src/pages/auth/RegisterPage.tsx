@@ -120,10 +120,10 @@ export function RegisterPage() {
             <UserPlus className="h-6 w-6 text-white" />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-slate-900 dark:text-white">
-            Create Account
+            Créer un Compte
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Join Crypto-Arbitrage and start earning today
+            Rejoignez Crypto-Arbitrage et commencez à gagner dès aujourd'hui
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export function RegisterPage() {
         <Card>
           <CardHeader>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white text-center">
-              Sign Up
+              S'Inscrire
             </h3>
           </CardHeader>
           
@@ -148,7 +148,7 @@ export function RegisterPage() {
                 <Input
                   name="firstName"
                   type="text"
-                  label="First Name"
+                  label="Prénom"
                   value={formData.firstName}
                   onChange={handleChange}
                   icon={<User className="h-5 w-5" />}
@@ -160,7 +160,7 @@ export function RegisterPage() {
                 <Input
                   name="lastName"
                   type="text"
-                  label="Last Name"
+                  label="Nom"
                   value={formData.lastName}
                   onChange={handleChange}
                   icon={<User className="h-5 w-5" />}
@@ -173,7 +173,7 @@ export function RegisterPage() {
               <Input
                 name="email"
                 type="email"
-                label="Email Address"
+                label="Adresse Email"
                 value={formData.email}
                 onChange={handleChange}
                 icon={<Mail className="h-5 w-5" />}
@@ -186,7 +186,7 @@ export function RegisterPage() {
                 <Input
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-                  label="Password"
+                  label="Mot de Passe"
                   value={formData.password}
                   onChange={handleChange}
                   icon={<Lock className="h-5 w-5" />}
@@ -213,7 +213,7 @@ export function RegisterPage() {
                       <AlertCircle className="h-4 w-4 text-orange-500" />
                     )}
                     <span className={passwordStrength.valid ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}>
-                      {passwordStrength.valid ? 'Strong password' : 'Password requirements:'}
+                      {passwordStrength.valid ? 'Mot de passe fort' : 'Exigences du mot de passe :'}
                     </span>
                   </div>
                   {!passwordStrength.valid && (
@@ -230,7 +230,7 @@ export function RegisterPage() {
                 <Input
                   name="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
-                  label="Confirm Password"
+                  label="Confirmer le Mot de Passe"
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   icon={<Lock className="h-5 w-5" />}
@@ -261,13 +261,13 @@ export function RegisterPage() {
                   htmlFor="acceptedTerms" 
                   className="text-sm text-slate-600 dark:text-slate-400"
                 >
-                  I agree to the{' '}
+                  J'accepte les{' '}
                   <Link to="/terms" className="text-blue-600 dark:text-blue-400 hover:underline">
-                    Terms of Service
+                    Conditions d'Utilisation
                   </Link>{' '}
-                  and{' '}
+                  et la{' '}
                   <Link to="/privacy" className="text-blue-600 dark:text-blue-400 hover:underline">
-                    Privacy Policy
+                    Politique de Confidentialité
                   </Link>
                 </label>
               </div>
@@ -285,25 +285,25 @@ export function RegisterPage() {
                 isLoading={isLoading}
                 disabled={!passwordStrength.valid || !formData.acceptedTerms}
               >
-                Create Account
+                Créer le Compte
               </Button>
             </form>
 
             <div className="mt-6 text-center">
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                Already have an account?{' '}
+                Vous avez déjà un compte ?{' '}
                 <Link 
                   to="/auth/login" 
                   className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
                 >
-                  Sign in here
+                  Connectez-vous ici
                 </Link>
               </p>
             </div>
 
             <div className="mt-6 text-xs text-slate-500 dark:text-slate-400 text-center">
-              By creating an account, you acknowledge that your information will be 
-              processed in accordance with our Privacy Policy.
+              En créant un compte, vous reconnaissez que vos informations seront 
+              traitées conformément à notre Politique de Confidentialité.
             </div>
           </CardContent>
         </Card>
