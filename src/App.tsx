@@ -21,6 +21,7 @@ import { ProfilePage } from './pages/client/ProfilePage';
 // Admin pages
 import { AdminLayout } from './pages/admin/AdminLayout';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { AdminUsersPage } from './pages/admin/AdminUsersPage';
 
 // Route protection component
 function ProtectedRoute({ children, adminOnly = false }: { children: React.ReactNode; adminOnly?: boolean }) {
@@ -118,7 +119,7 @@ function AppRoutes() {
       }>
         <Route index element={<AdminDashboard />} />
         <Route path="dashboard" element={<AdminDashboard />} />
-        <Route path="users" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Users management coming soon...</div>} />
+        <Route path="users" element={<AdminUsersPage />} />
         <Route path="transactions" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Transaction management coming soon...</div>} />
         <Route path="plans" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Plans management coming soon...</div>} />
         <Route path="wallets" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Wallet management coming soon...</div>} />

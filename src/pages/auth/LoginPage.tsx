@@ -63,17 +63,6 @@ export function LoginPage() {
         </div>
 
         {/* Demo Credentials */}
-        <Card className="bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
-          <CardContent className="pt-6">
-            <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
-              Identifiants de Démonstration
-            </h3>
-            <div className="text-xs text-blue-700 dark:text-blue-300 space-y-1">
-              <p><strong>Admin :</strong> admin@crypto-arbitrage.com / admin123</p>
-              <p><strong>Client :</strong> client@example.com / n'importe quel mot de passe</p>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Login Form */}
         <Card>
