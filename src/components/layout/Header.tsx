@@ -57,6 +57,12 @@ export function Header({ className }: HeaderProps) {
                 <Link to="/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Plans
                 </Link>
+                <Link to="/about" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  À Propos
+                </Link>
+                <Link to="/contact" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Contact
+                </Link>
               </>
             ) : (
               <>
@@ -176,6 +182,12 @@ export function Header({ className }: HeaderProps) {
                   </Link>
                   <Link to="/plans" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     Plans
+                  </Link>
+                  <Link to="/about" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    À Propos
+                  </Link>
+                  <Link to="/contact" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Contact
                   </Link>
                 </>
               ) : (

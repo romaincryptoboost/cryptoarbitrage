@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
+import { Button } from '../components/ui/Button';
 import { companyInfo, features } from '../data/company';
 import {
   Shield,
@@ -333,18 +335,16 @@ export function AboutPage() {
             Rejoignez plus de 25,000 investisseurs qui nous font confiance
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/auth/register"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-            >
-              Ouvrir un Compte
-            </a>
-            <a
-              href="/contact"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Nous Contacter
-            </a>
+            <Link to="/auth/register">
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
+                Ouvrir un Compte
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600">
+                Nous Contacter
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

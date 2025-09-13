@@ -6,6 +6,8 @@ import { ThemeProvider } from './contexts/ThemeContext';
 // Public pages
 import { HomePage } from './pages/HomePage';
 import { PlansPage } from './pages/PlansPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
 
@@ -22,6 +24,10 @@ import { ProfilePage } from './pages/client/ProfilePage';
 import { AdminLayout } from './pages/admin/AdminLayout';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminUsersPage } from './pages/admin/AdminUsersPage';
+import { AdminTransactionsPage } from './pages/admin/AdminTransactionsPage';
+import { AdminPlansPage } from './pages/admin/AdminPlansPage';
+import { AdminWalletsPage } from './pages/admin/AdminWalletsPage';
+import { AdminRatesPage } from './pages/admin/AdminRatesPage';
 
 // Route protection component
 function ProtectedRoute({ children, adminOnly = false }: { children: React.ReactNode; adminOnly?: boolean }) {
@@ -85,6 +91,16 @@ function AppRoutes() {
           <PlansPage />
         </PublicRoute>
       } />
+      <Route path="/about" element={
+        <PublicRoute>
+          <AboutPage />
+        </PublicRoute>
+      } />
+      <Route path="/contact" element={
+        <PublicRoute>
+          <ContactPage />
+        </PublicRoute>
+      } />
       <Route path="/auth/login" element={
         <PublicRoute>
           <LoginPage />
@@ -120,10 +136,10 @@ function AppRoutes() {
         <Route index element={<AdminDashboard />} />
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="users" element={<AdminUsersPage />} />
-        <Route path="transactions" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Transaction management coming soon...</div>} />
-        <Route path="plans" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Plans management coming soon...</div>} />
-        <Route path="wallets" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Wallet management coming soon...</div>} />
-        <Route path="rates" element={<div className="p-8 text-center text-slate-600 dark:text-slate-400">Rates management coming soon...</div>} />
+        <Route path="transactions" element={<AdminTransactionsPage />} />
+        <Route path="plans" element={<AdminPlansPage />} />
+        <Route path="wallets" element={<AdminWalletsPage />} />
+        <Route path="rates" element={<AdminRatesPage />} />
         <Route path="profile" element={<ProfilePage />} />
       </Route>
       
